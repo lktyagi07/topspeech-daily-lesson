@@ -1,0 +1,29 @@
+.progress-bar {
+  display: flex;
+  gap: 6px;
+  padding: 0 4px;
+  height: 8px;
+  align-items: center;
+}
+
+.progress-bar__segment {
+  flex: 1;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  overflow: hidden;
+  position: relative;
+  transform-origin: center bottom;
+}
+
+.progress-bar__segment--filled {
+  background: var(--color-primary-muted);
+}
+
+.progress-bar__glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+  border-radius: inherit;
+  transform-origin: left center;
+}
