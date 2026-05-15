@@ -1,21 +1,23 @@
-# TopSpeech Health — Daily Lesson Prototype
+# TopSpeech daily lesson (prototype)
 
-A PWA prototype of the **Rollr Academy** daily lesson flow for rhotacism (R-sound) practice. Built as a take-home assignment demonstrating interaction craft, clinical warmth, and speech-therapy-specific UX.
+Take-home prototype for TopSpeech Health — a short **Rollr Academy** lesson for R-sound practice. Mobile-first PWA, mocked audio/camera, static lesson content.
 
-**Live demo:** _(run `scripts/deploy.sh` — see Deploy below)_  
+**Live:** https://topspeech-daily-lesson.vercel.app  
 **Repo:** https://github.com/lktyagi07/topspeech-daily-lesson  
-**Stack:** React · TypeScript · Vite · Framer Motion · vite-plugin-pwa
+**Stack:** React, TypeScript, Vite, Framer Motion, vite-plugin-pwa
+
+Duolingo audit notes (task 01): [TASK01-DUOLINGO-AUDIT.md](./TASK01-DUOLINGO-AUDIT.md)
 
 ---
 
-## Quick start
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open on your phone or use DevTools mobile emulation (375×812 recommended).
+Use phone or DevTools ~375×812. Production build:
 
 ```bash
 npm run build
@@ -24,59 +26,63 @@ npm run preview
 
 ---
 
-## Design choices
+## What's in the lesson
 
-### Duolingo audit → deliberate divergence
+5 cards, 4 exercise types:
 
-| Keep (from Duolingo) | Change (for speech therapy) |
-|----------------------|-----------------------------|
-| Segmented progress bar that advances per step | No hearts/lives — mistakes are learning, not punishment |
-| Card-by-card focus, one task at a time | Softer incorrect feedback (warm copy, no harsh red shake) |
-| Immediate feedback after each attempt | **Reset Breath** overlay after a miss (see innovation) |
-| Celebration + streak/XP at lesson end | Copy emphasizes courage & consistency, not “winning” |
-| Clear lesson bookends (start → exercises → complete) | **Private practice** reassurance on start screen |
+1. Warmup — settle in, privacy reminder
+2. Listen & repeat — speaker + hold-to-record (mocked)
+3. Word select — pick the word with a clear R
+4. Mirror mode — placement diagram + fake camera view
+5. Listen & repeat again
 
-### Visual language
-
-- **Fraunces + DM Sans** — clinical credibility with warmth (not game-cartoon fonts)
-- **Teal/sage primary** — trust and calm; **coral accent** — reward moments without casino energy
-- Mobile-first, `100dvh`, safe-area insets for notched phones
-- Spring-based card transitions (slide + scale) between exercises
-
-### Exercise types (5 cards, 4 types)
-
-1. **Warmup** — privacy + settling-in before speaking
-2. **Listen & repeat** — tap speaker, hold-to-record (mocked), check pronunciation
-3. **Word select** — which option has a clear R?
-4. **Mirror mode** — tongue placement diagram + camera mock viewport
-5. **Listen & repeat** — second production exercise
+Flow: start screen → cards with segmented progress → complete screen (XP/streak style, but copy is more “you showed up” than “you won”).
 
 ---
 
-## Innovation: Reset Breath
+## Duolingo vs this build
 
-**What:** After an incorrect answer, instead of losing a life or showing punitive UI, a 3-second **guided micro-breath** overlay appears (“Your voice is safe here”) with an animated orb (inhale → hold → release). The user returns to the same card to retry — no progress penalty.
+Borrowed from Duolingo: chunked progress bar, one task per card, instant feedback, celebratory end screen.
 
-**Why:** Speech practice touches a real vulnerability. Duolingo’s loss-aversion model motivates language learners but can increase shame for adults working on R sounds alone. Reset Breath reframes a miss as regulation + retry, not failure — aligned with how SLPs often coach breathing before articulation drills.
+Did differently on purpose:
+
+- No hearts/lives — wrong answers don’t cost anything
+- Warmer miss state (no harsh red game-over vibe)
+- **Reset Breath** — 3s breathing overlay after a miss, then retry same card (see below)
+- Start screen calls out private / on-device practice
+- Mirror + placement content, not just tap games
+
+Full write-up in the audit doc linked above.
 
 ---
 
-## Deploy (Vercel)
+## Reset Breath
+
+Main product idea for the assignment. Miss an exercise → short overlay (“Your voice is safe here”) with a simple inhale / hold / exhale animation → back to the same card. No streak penalty, no lives.
+
+Duolingo’s loss stuff works for vocab; for speech therapy a bad R often comes with anxiety, so I wanted a pause that feels like regulation before retry, not punishment.
+
+---
+
+## Deploy
+
+Already on Vercel from the GitHub repo. To redeploy from CLI:
 
 ```bash
 npm run build
 npx vercel --prod
 ```
 
-Or connect the GitHub repo to [vercel.com](https://vercel.com) with build command `npm run build` and output directory `dist`.
+Or import the repo at [vercel.com](https://vercel.com) — build `npm run build`, output `dist`.
 
 ---
 
-## PWA install
+## PWA
 
-The app registers a service worker in production builds. On iOS Safari: Share → Add to Home Screen. On Android Chrome: Install app prompt.
+Service worker ships in production builds. iOS: Safari → Share → Add to Home Screen. Android: install prompt when offered.
 
 ---
 
+## Caveats
 
-
+Prototype only — pronunciation check is `Math.random()`, no real backend or audio analysis. Fine for demonstrating UX; wouldn’t ship as-is.
