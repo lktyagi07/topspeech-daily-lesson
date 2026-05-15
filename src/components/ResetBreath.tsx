@@ -9,7 +9,6 @@ interface ResetBreathProps {
 
 const BREATH_SECONDS = 3
 
-/** Innovation: gentle recovery after a miss — no lives lost, no red shame. */
 export function ResetBreath({ visible, onComplete }: ResetBreathProps) {
   const [phase, setPhase] = useState<'inhale' | 'hold' | 'exhale'>('inhale')
 

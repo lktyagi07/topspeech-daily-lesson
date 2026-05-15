@@ -19,8 +19,6 @@ After an incorrect answer, users see a **3-second guided micro-breath** (“Your
 ## Deploy & submit
 
 ```bash
-cd /Users/lktyagi/Project/topspeech-daily-lesson
 npm run build
 npx vercel login && npx vercel --prod
-# Push to GitHub and paste live URL + repo link in your reply
 ```

@@ -1,51 +1,41 @@
-# Task 01 — Duolingo Lesson UX Audit & Divergence
+# Task 01 — Duolingo audit notes
 
-*30–45 min observation notes, applied to TopSpeech’s speech-therapy context.*
+Spent ~40 min going through a normal lesson on mobile. Jotted what felt worth stealing vs what doesn't fit speech therapy.
 
----
+## What works in Duolingo
 
-## What Duolingo does well (key UX decisions)
+**Progress bar** — It's split into chunks per exercise, not a smooth %. You always know how many steps are left. Small thing but it makes finishing feel doable.
 
-1. **Segmented progress bar** — The lesson bar fills in discrete chunks (one segment per exercise), not a vague percentage. You always know how much is left and each step feels like a small win.
+**One thing per screen** — Listen, tap, speak, whatever — you never get two tasks at once. Next card slides in and you just keep going.
 
-2. **One card, one job** — Each screen has a single focus (listen, tap, speak, match). Transitions slide the next card in so momentum never breaks.
+**Feedback is instant** — Green when you're right, you move on fast. Wrong answer = obvious miss state, sometimes they show the right answer, then retry. No waiting around.
 
-3. **Immediate feedback loop** — Correct: green banner + quick advance. Wrong: clear “not quite” state, often with the right answer shown, then retry or continue. Feedback is fast and tied to the action you just took.
+**Hearts + streak + XP** — Classic retention stuff. Mess up too many times and you bail or buy lives. End of lesson is a little reward screen (streak, XP, keep going). Works for language learning because failing a vocab question isn't that personal.
 
-4. **Loss aversion for retention** — Hearts/lives, streaks, XP, and end-of-lesson celebration create urgency to finish and return tomorrow. The lesson end screen is a reward moment (stats, streak flame, “continue”).
+**Quick into the lesson** — Open app, you're practicing within a few taps.
 
-5. **Low friction start** — You’re in the lesson quickly; the path from open app → first exercise is short.
+## What I'd keep for TopSpeech
 
----
+- Chunked progress bar (fits a short daily session, like 4–6 exercises)
+- One card at a time
+- Immediate right/wrong feedback (even if pronunciation is mocked in the prototype)
+- Start screen → exercises → done screen with something motivating at the end (streak/XP vibe)
 
-## What I would keep for TopSpeech (speech therapy)
+## What I'd change
 
-- **Segmented progress** — Still satisfying to advance; maps well to “4–6 exercises per day” clinical structure.
-- **Card-by-card flow** — Reduces cognitive load when someone is already self-conscious about speaking.
-- **Immediate feedback** — Users need to know if placement/production was on track (even when mocked in a prototype).
-- **Lesson bookends** — Clear start (what today is about), middle (exercises), end (celebration + reason to return).
-- **End-screen rewards** — Streak/XP-style moments support habit without requiring perfection.
+**No hearts / lives** — Missing an R sound isn't the same as forgetting a word. Feels wrong to punish someone for something they're already embarrassed about. Unlimited retries on the same card.
 
----
+**Softer wrong state** — Duolingo goes pretty hard on red / wrong vibes. For adults practicing alone I'd use warmer copy and colors — "almost, try again" not game over.
 
-## What I would change (and why)
+**Breath before retry** — They usually just let you try again or take a heart. For speech I wanted a short pause first — that's the Reset Breath overlay in the prototype (inhale/hold/exhale, then back to the same card).
 
-1. **Remove hearts / life loss** — In speech therapy, a “wrong” sound is often muscle memory and anxiety, not laziness. Losing lives can feel like punishment for a vulnerability. TopSpeech should allow unlimited retries on the same card.
+**Privacy on the start screen** — Most people learning Spanish aren't worried someone heard them mess up. R practice is different. Call out that it's private / on-device / no judgment.
 
-2. **Soften incorrect feedback** — Duolingo leans red, buzzer, “wrong.” For adults fixing R-sounds alone, copy and color should be warm and normalizing (“Almost — let’s try again”) rather than game-over energy.
+**Actually speech-specific exercises** — Mirror mode, tongue placement, phonetic hints. Duolingo's flow is a template; the content has to be clinical not just tap-the-picture.
 
-3. **Add regulation before retry** — Duolingo moves straight to the next attempt or deducts a heart. Speech work benefits from a brief reset (breathing, grounding). This became **Reset Breath** in the prototype.
+## TL;DR
 
-4. **Lead with privacy and safety** — Language learners don’t worry who hears them fail. Speech clients often do. The start screen should explicitly say practice is private, on-device, and judgment-free.
-
-5. **Include articulation-specific modalities** — Mirror mode, placement diagrams, and phonetic cues matter more than generic tap-the-picture exercises. Duolingo’s patterns are a shell; the card content must be clinical.
-
----
-
-## Summary (3–5 bullets for submission)
-
-- **Keep:** segmented progress, single-task cards, instant feedback, and a celebratory lesson-complete screen with streak/XP-style motivation.
-- **Change:** drop life/hearts mechanics; use gentle incorrect states; add a short calming reset before retry; foreground private practice on the start screen.
-- **Add:** mirror/placement exercises and SLP-aligned copy — not just gamified quizzes.
-- **Why:** Users are working through a real vulnerability; the product should feel like a supportive clinic session, not a game that punishes failure.
-- **Result in prototype:** Duolingo’s *structure* (daily loop, progress, rewards) with TopSpeech’s *tone* (warmth, Reset Breath, no shame).
+- **Keep:** segmented progress, one card per step, fast feedback, celebratory end screen
+- **Change:** no lives, gentler misses, reset breath before retry, privacy messaging up front
+- **Add:** mirror + placement stuff, copy that sounds like therapy not a game
+- **Prototype:** basically Duolingo's lesson skeleton with a calmer, less punishing feel

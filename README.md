@@ -78,14 +78,5 @@ The app registers a service worker in production builds. On iOS Safari: Share �
 
 ---
 
-## Submission checklist
 
-- [ ] Live PWA link
-- [ ] GitHub repo
-- [ ] README (this file) or ≤3 min Loom walkthrough
 
----
-
-## Author notes
-
-Prototype uses static content and mocked pronunciation checks (`Math.random()`). No backend, no real audio analysis — by design for this assignment.
